@@ -7,7 +7,7 @@ module.exports.get = async (req, res) => {
       { headers: { cookie: req.query.cookie } }
     );
 
-    const data = await response.json();
+    const data = JSON.parse(response.body);
     res.status(200).json(data);
   } catch (error) {
     if (error.response.statusCode == 404)
